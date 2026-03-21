@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Product Quotation Form</title>
+
+<style>
+
+body{
+    font-family: Arial;
+    background:#f4f6f9;
+}
+
+.container{
+    max-width:500px;
+    width:90%;
+    margin:50px auto;
+    background:white;
+    padding:30px;
+    border-radius:8px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+.service-name{
+    text-align:center;
+    font-size:32px;
+    font-weight:bold;
+    color:#007bff;
+}
+
+.service-name span{
+    color:pink;
+}
+
+h2{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+label{
+    display:block;
+    margin-top:15px;
+}
+
+input, textarea{
+    width:100%;
+    padding:10px;
+    margin-top:8px;
+    border:1px solid #ccc;
+    border-radius:4px;
+}
+
+input[type="checkbox"], input[type="radio"]{
+    width:auto;
+}
+
+.checkbox-item{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:8px;
+}
+
+.checkbox-item input[type="checkbox"],
+.checkbox-item input[type="radio"]{
+    margin: 0;
+    margin-right: 10px;
+    transform: scale(1.2); /* Slightly larger checkboxes for better alignment */
+    vertical-align: middle;
+}
+
+.checkbox-item label{
+    display:inline;
+    margin:0;
+    vertical-align:middle;
+}
+
+.feature-box{
+    background:#f9f9f9;
+    padding:15px;
+    border-radius:6px;
+    margin-top:10px;
+}
+
+.radio-group{
+    margin-left:20px;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    font-size:16px;
+    background:#007bff;
+    color:white;
+    border:none;
+    border-radius:4px;
+    cursor:pointer;
+    margin-top: 20px;
+}
+
+button:hover{
+    background:#0056b3;
+}
+
+/* Center align text inputs */
+input[type="text"],
+input[type="email"],
+textarea {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    margin-right: 20px;
+}
+
+/* Add padding to text inputs to prevent touching the container edge */
+input[type="text"],
+input[type="email"],
+textarea {
+    padding: 10px;
+    margin: 10px 0;
+    width: calc(100% - 20px); /* Adjust width to account for padding */
+    box-sizing: border-box; /* Include padding in width calculation */
+}
+
+/* Add top margin to submit button */
+button {
+    margin-top: 20px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1 class="service-name">Web<span>scope</span></h1>
+<h2>Website Quotation Form</h2>
+
+<form action="/submit" method="POST">
+
+<label>Website Name</label>
+<input type="text" name="name" required>
+
+<label>Email</label>
+<input type="email" name="email" required>
+
+<label>Phone</label>
+<input type="text" name="phone" required>
+
+<label>Address</label>
+<input type="text" name="address" required>
+
+<label>Include Features</label>
+
+<div class="feature-box">
+
+<!-- PRODUCTS -->
+<label class="checkbox-item">
+<input type="checkbox" id="productsFeature"> Products
+</label>
+
+<div id="productFeatures" style="display:none; margin-left:15px;">
+<label class="checkbox-item"><input type="checkbox" name="features" value="Cart"> Cart</label>
+<label class="checkbox-item"><input type="checkbox" name="features" value="Wish List"> Wish List</label>
+<label class="checkbox-item"><input type="checkbox" name="features" value="Category"> Category</label>
+<label class="checkbox-item"><input type="checkbox" name="features" value="Search Box"> Search Box</label>
+<label class="checkbox-item"><input type="checkbox" name="features" value="Today's Deals"> Today's Deals</label>
+<label class="checkbox-item"><input type="checkbox" name="features" value="Bulk Order"> Bulk Order</label>
+<label class="checkbox-item"><input type="checkbox" name="features" value="Availability"> Availability</label>
+<label class="checkbox-item"><input type="checkbox" name="features" value="Product Reviews"> Product Reviews</label>
+<label class="checkbox-item"><input type="checkbox" name="features" value="Return Policy"> Return Policy</label>
+<label class="checkbox-item"><input type="checkbox" name="features" value="Cost Tracking (graph)"> Cost Tracking (graph)</label>
+</div>
+
+<!-- ADMIN -->
+<label class="checkbox-item">
+<input type="checkbox" id="adminFeature"> Admin Dashboard
+</label>
+
+<div id="adminFeatures" style="display:none; margin-left:15px;">
+<label class="checkbox-item"><input type="checkbox" name="features" value="Manage Orders"> Manage Orders</label>
+<label class="checkbox-item"><input type="checkbox" name="features" value="User Data"> User Data</label>
+<label class="checkbox-item"><input type="checkbox" name="features" value="Profit Tracking"> Profit Tracking</label>
+<label class="checkbox-item"><input type="checkbox" name="features" value="Track real-time network traffic"> Track real-time network traffic</label>
+<label class="checkbox-item"><input type="checkbox" name="features" value="Access raw data from database"> Access raw data from database</label>
+<label class="checkbox-item"><input type="checkbox" name="features" value="Security breach alert"> Security breach alert</label>
+</div>
+
+<!-- SECURITY -->
+<label class="checkbox-item">
+<input type="checkbox" id="securityFeature"> Security
+</label>
+
+<div id="securityFeatures" style="display:none; margin-left:15px;">
+<label class="checkbox-item"><input type="checkbox" name="features" value="OTP Service"> OTP Service</label>
+<label class="checkbox-item"><input type="checkbox" name="features" value="Email notification"> Email notification</label>
+<label class="checkbox-item"><input type="checkbox" name="features" value="SSL integration"> SSL integration</label>
+<label class="checkbox-item"><input type="checkbox" name="features" value="Data Encryption"> Data Encryption</label>
+<label class="checkbox-item"><input type="checkbox" name="features" value="Login activity logs"> Login activity logs</label>
+</div>
+
+<!-- UI FEATURES -->
+<label class="checkbox-item">
+<input type="checkbox" id="uiFeature"> UI Features
+</label>
+
+<div id="uiFeatures" style="display:none; margin-left:15px;">
+<label class="checkbox-item"><input type="checkbox" name="features" value="Smooth animations"> Smooth animations</label>
+<label class="checkbox-item"><input type="checkbox" name="features" value="Custom UI design"> Custom UI design</label>
+</div>
+
+<label class="checkbox-item"><input type="checkbox" name="features" value="Forum"> Forum</label>
+<label class="checkbox-item"><input type="checkbox" name="features" value="Blog"> Blog</label>
+
+<!-- LEARN -->
+<label class="checkbox-item">
+<input type="checkbox" id="learnFeature"> Learn
+</label>
+
+<div id="learnFeatures" style="display:none; margin-left:15px;">
+<label class="checkbox-item"><input type="checkbox" name="features" value="Video integration"> Video integration</label>
+</div>
+
+<!-- PAYMENT -->
+<label class="checkbox-item">
+<input type="checkbox" id="paymentFeature"> Payment Gateway Integration
+</label>
+
+<div id="paymentFeatures" style="display:none;" class="radio-group">
+<label class="checkbox-item">
+<input type="radio" name="paymentGateway" value="Razorpay"> Razorpay: For Indian customers (domestic: ~2%, international: ~4.5-5%)
+</label>
+<label class="checkbox-item">
+<input type="radio" name="paymentGateway" value="Stripe"> Stripe: Global-friendly (domestic: ~2-3%, international: ~5.5%)
+</label>
+<label class="checkbox-item">
+<input type="radio" name="paymentGateway" value="PayPal"> Paypal: International only (expensive)
+</label>
+</div>
+
+<label class="checkbox-item"><input type="checkbox" name="features" value="Invoice Generation"> Invoice Generation</label>
+
+<!-- DOMAIN -->
+<label class="checkbox-item">
+<input type="checkbox" id="domainFeature"> Choose Domain (As per current pricing)
+</label>
+
+<div id="domainFeatures" style="display:none;" class="radio-group">
+<label class="checkbox-item">
+<input type="radio" name="domainSelection" value="freecircuitlab.in - Godaddy"> freecircuitlab.in (first year cost: 99) cost: 899/yr, provider: Godaddy
+</label>
+<label class="checkbox-item">
+<input type="radio" name="domainSelection" value="freecircuitlab.com - Cloudflare"> freecircuitlab.com cost: 10.46$/yr, provider: Cloudflare
+</label>
+<label class="checkbox-item">
+<input type="radio" name="domainSelection" value="freecircuitlab.in - Hostinger"> freecircuitlab.in rupees 1.00/1st yr with a 3 years registration cost: 1yr: 647, 2yr: 1378, 3yr: 2122.82 (inc GST) provider: Hostinger
+</label>
+</div>
+
+<!-- HOSTING -->
+<label class="checkbox-item">
+<input type="checkbox" id="frontendHosting" checked disabled> Choose frontend hosting platform (required)
+</label>
+
+<div id="frontendOptions" style="display:block;" class="radio-group">
+<label class="checkbox-item">
+<input type="radio" name="frontendSelection" value="Vercel" checked> Vercel: 20$/mo (faster loading)
+</label>
+<label class="checkbox-item">
+<input type="radio" name="frontendSelection" value="Netlify"> Netlify: 9$/mo (Credit card only)
+</label>
+<label class="checkbox-item">
+<input type="radio" name="frontendSelection" value="Render"> Render: 19$/mo (Slower loading)
+</label>
+</div>
+
+<p id="frontendWarning" style="color:red; font-weight:bold; display:none;">Frontend hosting platform is required.</p>
+
+<label class="checkbox-item" style="opacity:0.7;"><input type="checkbox" name="features" checked disabled> Backend hosting platform Render (Fast response), cost: 19$/mo</label>
+<label class="checkbox-item" style="opacity:0.7;"><input type="checkbox" name="features" checked disabled> Database plan: 0.011$/hour (upto 30$/month)</label>
+<label class="checkbox-item"><input type="checkbox" name="maintenance" value="true"> Monthly maintenance, bug fixing, patch updates, instant support, improving performance cost: rs:100/mo</label>
+
+</div>
+
+<label>Additional Details</label>
+<textarea name="message"></textarea>
+
+<button type="submit">Submit Request</button>
+
+</form>
+
+</div>
+
+<script>
+
+// TOGGLES
+function toggleSection(mainId, subContainerId) {
+    const main = document.getElementById(mainId);
+    const container = document.getElementById(subContainerId);
+    main.onchange = function() {
+        const visible = this.checked;
+        container.style.display = visible ? "block" : "none";
+        container.querySelectorAll('input[type="checkbox"], input[type="radio"]').forEach(el => {
+            el.disabled = !visible;
+            if (!visible) el.checked = false;
+        });
+    };
+    // initialize state
+    main.dispatchEvent(new Event('change'));
+}
+
+toggleSection('productsFeature', 'productFeatures');
+toggleSection('adminFeature', 'adminFeatures');
+toggleSection('securityFeature', 'securityFeatures');
+toggleSection('uiFeature', 'uiFeatures');
+toggleSection('learnFeature', 'learnFeatures');
+
+toggleSection('paymentFeature', 'paymentFeatures');
+toggleSection('domainFeature', 'domainFeatures');
+// Frontend platform is required and cannot be unchecked
+const frontendHost = document.getElementById('frontendHosting');
+frontendHost.disabled = true;
+frontendHost.checked = true;
+
+document.querySelector('form').addEventListener('submit', function(event) {
+    const frontendWarning = document.getElementById('frontendWarning');
+    if (!frontendHost.checked) {
+        event.preventDefault();
+        frontendWarning.style.display = 'block';
+        return;
+    }
+    frontendWarning.style.display = 'none';
+});
+
+</script>
+
+</body>
+</html>
